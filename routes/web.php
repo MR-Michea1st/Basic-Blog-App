@@ -7,7 +7,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::post('post_list/id={id}' , function($id) {
+Route::post('post_details' , function() {
     $post = Post::findOrFail(request('id'));
     return view('post_details' , ['required_post' => $post]);
 });

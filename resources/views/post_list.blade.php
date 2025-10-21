@@ -9,7 +9,7 @@
   </div>
   
 @endforeach
-  <form method="POST" action="post_list/id={{ $post->id }}">
+  <form method="POST" action="post_details">
     @csrf
     <label for = "id"> get specific post : </label> 
     <input type="number" name="id" id="id">
