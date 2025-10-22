@@ -6,13 +6,12 @@
     <p>post id : {{ $post->id }}</p>
     <h1 style="font-size:20px"> {{ $post->title }}</h1>
     <p style="display: flex; justify-content: center;">{{ $post->content }}</p>
+    <form action="" method="get">
+      <button style="padding:5px; cursor: pointer; display: flex; justify-items:flex-end;">
+        <a style="text-decoration: none; color:black"  href="post_list/{{$post->id}}">details</a>
+      </button>
+    </form>
   </div>
   
 @endforeach
-  <form method="POST" action="post_details">
-    @csrf
-    <label for = "id"> get specific post : </label> 
-    <input type="number" name="id" id="id">
-    <button type="submit" style="padding:7px; display:flex; justify-self: flex-start; cursor:pointer; margin:10px;">get details</button>
-   </form>
 @endsection

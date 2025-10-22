@@ -1,7 +1,7 @@
 @extends('template.app')
 @section('section1')
 
-<form method="POST" , action="posts">
+<form method="POST" enctype="multipart/form-data" action="posts">
     @csrf
     <label for="name">Author</label>
     <input type="text" name="author" id = "author"/>
@@ -14,6 +14,9 @@
     <label for="content">Post</label>
     <textarea name="content" id="content"></textarea>
     
+    <br><br>
+     <label for="img">post image : </label>
+     <input type="file" name="img"  id="img"/>
     <br><br>
     <button type="submit">Submit</button>
 </form>

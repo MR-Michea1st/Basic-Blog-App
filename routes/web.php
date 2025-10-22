@@ -7,8 +7,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::post('post_details' , function() {
-    $post = Post::findOrFail(request('id'));
+Route::get('post_list/{id}' , function($id) {
+    $post = Post::findOrFail($id);
     return view('post_details' , ['required_post' => $post]);
 });
 
@@ -25,12 +25,16 @@ Route::post('posts', function() {
     $author = request('author');
     $title = request('title');
     $content = request('content');
-    
+    $img = request()->file('img');
+    $img_path = $img->store('assets/images' , 'public');
+
+
     $post = new Post();
     $post->title = $title;
     $post->content = $content; 
     $post->author = $author; 
     $post->user_id = 1; 
+    $post->img = $img_path; 
     $post->save();
 
     return redirect('post_list');
