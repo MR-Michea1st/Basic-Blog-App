@@ -1,6 +1,6 @@
 @extends('template.app')
 @section('section1')
-
+<button type="submit" style="padding:5px;"><a href="post_create" style="text-decoration: none; color:black">Create New Post</a></button>
 @foreach ($posts as $post)
   <div style="border:2px solid black; padding:10px; margin:10px; border-radius: 10px; box-shadow:1px 1px 1px 1px black">
     <p>post id : {{ $post->id }}</p>
@@ -10,6 +10,11 @@
       <button style="padding:5px; cursor: pointer; display: flex; justify-items:flex-end;">
         <a style="text-decoration: none; color:black"  href="post_list/{{$post->id}}">details</a>
       </button>
+
+      <button style="padding:5px; cursor: pointer; display: flex; justify-items:flex-end; margin-top:10px;">
+        <a style="text-decoration: none; color:black"  href="post_edit/{{$post->id}}">Edit Post</a>
+      </button>
+
     </form>
   </div>
   
